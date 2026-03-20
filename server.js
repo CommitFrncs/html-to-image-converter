@@ -80,9 +80,14 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
-    console.log(`📁 Serving static files from /public`);
-    console.log(`🔒 API key loaded: ${process.env.HTML_TO_IMAGE_API_KEY ? 'YES' : 'NO'}`);
-});
+// Start server (for local development)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running at http://localhost:${PORT}`);
+        console.log(`📁 Serving static files from /public`);
+        console.log(`🔒 API key loaded: ${process.env.HTML_TO_IMAGE_API_KEY ? 'YES' : 'NO'}`);
+    });
+}
+
+// Export for Vercel serverless
+module.exports = app;
