@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to Image Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎨 HTML to Image Converter</h1>
+            <p>Convert your HTML/CSS code into beautiful images</p>
+        </header>
+
+        <!-- Main Application -->
+        <main>
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-group">
+                    <label for="html-input">HTML Code</label>
+                    <textarea 
+                        id="html-input" 
+                        placeholder="Enter your HTML code here...
+Example:
+<div class='card'>
+  <h2>Hello World</h2>
+  <p>This is a test</p>
+</div>"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="css-input">CSS Styles (Optional)</label>
+                    <textarea 
+                        id="css-input" 
+                        placeholder="Enter your CSS code here...
+Example:
+.card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}"
+                    ></textarea>
+                </div>
+
+                <!-- Size Options -->
+                <div class="size-options">
+                    <div class="size-field">
+                        <label for="width">Width (px)</label>
+                        <input type="number" id="width" value="800" min="100" max="2000">
+                    </div>
+                    <div class="size-field">
+                        <label for="height">Height (px)</label>
+                        <input type="number" id="height" value="600" min="100" max="2000">
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <button id="generate-btn" class="generate-btn">
+                    <span class="btn-text">Generate Image</span>
+                    <span class="btn-loader hidden">⏳ Generating...</span>
+                </button>
+            </section>
+
+            <!-- Result Section -->
+            <section class="result-section hidden" id="result-section">
+                <h2>Generated Image</h2>
+                <div class="image-container">
+                    <img id="result-image" alt="Generated image will appear here">
+                </div>
+                <div class="result-actions">
+                    <a id="download-btn" class="download-btn" target="_blank" download>
+                        📥 Download Image
+                    </a>
+                    <button id="new-btn" class="new-btn">
+                        🔄 Create New
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="error-message" class="error-message hidden"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Powered by <a href="https://htmlcsstoimage.com" target="_blank">HTML/CSS to Image API</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
